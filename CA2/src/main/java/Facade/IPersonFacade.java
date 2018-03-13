@@ -5,6 +5,8 @@
  */
 package Facade;
 
+import Entities.Person;
+import java.util.List;
 import javax.persistence.EntityManagerFactory;
 
 /**
@@ -18,8 +20,9 @@ public Person editePerson(Person p);
 public Person deletePerson(Person p);
 public Person getPerson(String phone);
 public List<Person> getPersons();
-public Person getPerson(String hobby);
+//public Person getPerson(String hobby);
 public Person getPerson(int id);
+public List<Person> getPersons(String zipcode);
 
 
 

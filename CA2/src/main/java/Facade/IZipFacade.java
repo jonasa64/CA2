@@ -5,7 +5,7 @@
  */
 package Facade;
 
-import Entities.Company;
+import Entities.CityInfo;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 
@@ -13,18 +13,7 @@ import javax.persistence.EntityManagerFactory;
  *
  * @author Jonas
  */
-public interface IcompaniesFacade {
-
+public interface IZipFacade {
     public void addEntityManagerFactory(EntityManagerFactory emf);
-
-    public Company addCompany(Company c);
-
-    public Company editCompany(Company c);
-
-    public Company getCompany(String phone);
-
-    public List<Company> getEmployes(int employes);
-
-    public Company getInfo( String cvr);
-
+    public List<CityInfo> getAllZips();
 }
