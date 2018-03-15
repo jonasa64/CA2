@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -25,7 +21,9 @@ public class Address implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Address;
+    @Expose
+    private String street;
+    @Expose
     private String additionalInfo;
     @OneToMany(mappedBy = "address")
     private List<InfoEntity> InfoEntity;
@@ -35,14 +33,14 @@ public class Address implements Serializable {
     public Address() {
     }
 
-    public Address(Long id, String Address, String additionalInfo) {
-        this.id = id;
-        this.Address = Address;
+    public Address(String street, String additionalInfo, CityInfo cityInfo) {
+        this.street = street;
         this.additionalInfo = additionalInfo;
+        this.cityInfo = cityInfo;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public void setAdditionalInfo(String additionalInfo) {
@@ -53,8 +51,8 @@ public class Address implements Serializable {
         this.InfoEntity = InfoEntity;
     }
 
-    public String getAddress() {
-        return Address;
+    public String getStreet() {
+        return street;
     }
 
     public String getAdditionalInfo() {
@@ -99,7 +97,8 @@ public class Address implements Serializable {
 
     @Override
     public String toString() {
-        return "Address{" + "id=" + id + ", Address=" + Address + ", additionalInfo=" + additionalInfo + '}';
+        return "Address{" + "id=" + id + ", Street=" + street + ", additionalInfo=" + additionalInfo + '}';
     }
+
 
 }

@@ -16,13 +16,14 @@ import javax.persistence.Persistence;
 public class Structure {
     
     public static void main(String[] args) {
-        HashMap puProperties = new HashMap();
+//        HashMap zipcodes = new HashMap();
+//        HashMap dummyData = new HashMap();
+//        
+//        zipcodes.put("javax.persistence.sql-load-script-source", "Scripts/populateCityInfo.sql");
+//        Persistence.generateSchema("PU", zipcodes);
         
-        puProperties.put("javax.persistence.sql-load-script-source", "Scripts/populateCityInfo.sql");
-        
-        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
         //emf.getProperties().put("javax.persistence.sql-load-script-source", "Scripts/populateCityInfo.sql");
-        Persistence.generateSchema("PU", puProperties);
     }
     
     

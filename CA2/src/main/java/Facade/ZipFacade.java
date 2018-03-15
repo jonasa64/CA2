@@ -17,6 +17,10 @@ public class ZipFacade implements IZipFacade{
     
     EntityManagerFactory emf;
     
+    public ZipFacade() {
+        
+    }
+    
     public ZipFacade(EntityManagerFactory emf){
         this.emf = emf;
     }

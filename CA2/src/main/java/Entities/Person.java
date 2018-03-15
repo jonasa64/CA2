@@ -5,6 +5,7 @@
  */
 package Entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import javax.persistence.Entity;
 
@@ -15,7 +16,9 @@ import javax.persistence.Entity;
 @Entity
 public class Person extends InfoEntity implements Serializable {
 
+    @Expose
     private String firstName;
+    @Expose
     private String lastName;
 
     public Person() {

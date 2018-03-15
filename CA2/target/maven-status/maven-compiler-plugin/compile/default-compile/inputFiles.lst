@@ -10,7 +10,10 @@
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/ZipFacade.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/InfoEntity.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/Company.java
+/Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Rest/ZipResource.java
+/Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/jpaControl/Populate.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/CompaniesFacade.java
+/Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/FacadeZip.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/CityInfo.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/IZipFacade.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/Phone.java

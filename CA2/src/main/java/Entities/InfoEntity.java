@@ -5,6 +5,7 @@
  */
 package Entities;
 
+import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,11 +28,15 @@ public class InfoEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    @Expose
     private String email;
     
     @OneToMany(mappedBy = "infoEntity")
+    @Expose
     private List<Phone> phones = new ArrayList();
     @ManyToOne
+    @Expose
     private Address address;
 
     public InfoEntity() {
@@ -60,6 +65,14 @@ public class InfoEntity implements Serializable {
 
     public void setPhones(List<Phone> phones) {
         this.phones = phones;
+    }
+    
+    public void addPhone(Phone phone) {
+        if(this.phones == null){
+            this.phones = new ArrayList<>();
+        }
+        phone.setInfoEntity(this);
+        this.phones.add(phone);
     }
 
     public Address getAddress() {

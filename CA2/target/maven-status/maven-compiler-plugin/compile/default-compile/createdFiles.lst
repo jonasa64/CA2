@@ -1,13 +1,16 @@
+jpaControl/Populate.class
 Facade/CompaniesFacade.class
 Facade/IcompaniesFacade.class
 Rest/PersonResource.class
 Rest/JsonConverter.class
 jpaControl/Structure.class
 Entities/Company.class
+Rest/ZipResource.class
 Entities/Phone.class
 Entities/Person.class
 Facade/PersonFacade.class
 Facade/ZipFacade.class
+Facade/FacadeZip.class
 Entities/Address.class
 Facade/IPersonFacade.class
 Facade/IZipFacade.class

@@ -9,11 +9,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 
 /**
@@ -25,8 +21,6 @@ public class CityInfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String zipCode;
     private String city;
     @OneToMany(mappedBy = "cityInfo")
@@ -35,8 +29,7 @@ public class CityInfo implements Serializable {
     public CityInfo() {
     }
 
-    public CityInfo(Long id, String zipCode, String city) {
-        this.id = id;
+    public CityInfo(String zipCode, String city) {
         this.zipCode = zipCode;
         this.city = city;
     }
@@ -53,10 +46,6 @@ public class CityInfo implements Serializable {
         return zipCode;
     }
 
-    public void setZipCode(String zipCode) {
-        this.zipCode = zipCode;
-    }
-
     public String getCity() {
         return city;
     }
@@ -65,14 +54,10 @@ public class CityInfo implements Serializable {
         this.city = city;
     }
 
-    public Long getId() {
-        return id;
-    }
-
     @Override
     public int hashCode() {
         int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
+        hash += (zipCode != null ? zipCode.hashCode() : 0);
         return hash;
     }
 
@@ -83,7 +68,7 @@ public class CityInfo implements Serializable {
             return false;
         }
         CityInfo other = (CityInfo) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
+        if ((this.zipCode == null && other.zipCode != null) || (this.zipCode != null && !this.zipCode.equals(other.zipCode))) {
             return false;
         }
         return true;
@@ -91,7 +76,7 @@ public class CityInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "Entities.CityInfo[ id=" + id + " ]";
+        return "Entities.CityInfo[ id=" + zipCode + " ]";
     }
 
 }

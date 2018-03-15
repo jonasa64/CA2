@@ -8,6 +8,8 @@ package Rest;
 import Entities.Person;
 import Facade.IPersonFacade;
 import Facade.PersonFacade;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import java.util.List;
@@ -27,7 +29,7 @@ import javax.ws.rs.core.MediaType;
  *
  * @author Oliver
  */
-@Path("Person")
+@Path("person")
 public class PersonResource {
     private IPersonFacade personFacade = new PersonFacade();
     private JsonConverter jsonConverter = new JsonConverter();
@@ -51,26 +53,22 @@ public class PersonResource {
      */
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/person/{id}")
+    @Path("{id}")
     public String getPerson(@PathParam("id") int id) {
         Person person = personFacade.getPerson(id);
+//        Gson gson = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+//        String response = gson.toJson(person);
+//        return response;
+
         return jsonConverter.getJSONFromPerson(person);
     }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/all")
+    @Path("all")
     public String getPersons() {
         List<Person> persons = personFacade.getPersons();
         return jsonConverter.getJSONFromPersons(persons);
     }
 
-    /**
-     * PUT method for updating or creating an instance of PersonResource
-     * @param content representation for the resource
-     */
-    @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
-    }
 }

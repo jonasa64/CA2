@@ -16,7 +16,8 @@ import java.util.List;
  * @author Oliver
  */
 public class JsonConverter {
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson GSON = new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
+                                    //new GsonBuilder().setPrettyPrinting().create();
 
     public Person getPersonFromJson(String javascript) {
         return GSON.fromJson(javascript, Person.class);
