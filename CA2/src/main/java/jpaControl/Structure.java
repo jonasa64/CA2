@@ -5,6 +5,7 @@
  */
 package jpaControl;
 
+import java.util.HashMap;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
@@ -15,7 +16,13 @@ import javax.persistence.Persistence;
 public class Structure {
     
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
+        HashMap puProperties = new HashMap();
+        
+        puProperties.put("javax.persistence.sql-load-script-source", "Scripts/populateCityInfo.sql");
+        
+        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("PU");
+        //emf.getProperties().put("javax.persistence.sql-load-script-source", "Scripts/populateCityInfo.sql");
+        Persistence.generateSchema("PU", puProperties);
     }
     
     
