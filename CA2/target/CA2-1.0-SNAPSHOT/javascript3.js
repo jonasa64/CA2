@@ -18,7 +18,16 @@ promise.then(function(response){
          html += "<tr><td>" +json[i].name + "</td><td>" + json[i].description + "</td><td>" + json[i].cvr + "</td><td>" 
                  + json[i].numEmployees + "</td><td>" + json[i].marketValue[i] + "</td></tr>"  
      }
+     
+       html += "</table>";
+       
+       document.getElementById("tblbody").innerHTML = html;
+     
 });
+
+function refresh() {
+    location.reload();
+}
 
 
 var companieAdd = document.getElementById("companieAdd");
@@ -125,6 +134,8 @@ var user = {
             alert(json.message);
         }
     });
+    
+    refresh();
     
 }
 
