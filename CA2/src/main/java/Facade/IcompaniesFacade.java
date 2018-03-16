@@ -5,6 +5,7 @@
  */
 package Facade;
 
+import Entities.Company;
 import java.util.List;
 import javax.persistence.EntityManagerFactory;
 
@@ -16,16 +17,14 @@ public interface IcompaniesFacade {
 
     public void addEntityManagerFactory(EntityManagerFactory emf);
 
-    public Companies addCompanie(Companies c);
+    public Company addCompany(Company c);
 
-    public Companies editCompanie(Companies c);
+    public Company editCompany(Company c);
 
-    public Companies deleteCompanie(int id);
+    public Company getCompany(String phone);
 
-    public Companies getCompanie(int id);
+    public List<Company> getEmployes(int employes);
 
-    public List<Companies> getEmployes();
-
-    public Companies getInfo(String phone);
+    public Company getInfo( String cvr);
 
 }
