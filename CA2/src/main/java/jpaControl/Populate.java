@@ -7,6 +7,8 @@ package jpaControl;
 
 import Entities.Address;
 import Entities.CityInfo;
+import Entities.Hobby;
+import Entities.InfoEntity;
 import Entities.Person;
 import Entities.Phone;
 import javax.persistence.EntityManager;
@@ -25,6 +27,7 @@ public class Populate {
         EntityManager em = emf.createEntityManager();
 
         em.getTransaction().begin();
+        
 
         CityInfo c1 = new CityInfo("2800", "Lyngby");
         Address a1 = new Address();
@@ -51,6 +54,7 @@ public class Populate {
         Address a2 = new Address();
         Phone phone2 = new Phone();
         Person p2 = new Person();
+        Hobby h2 = new Hobby();
 
         a2.setStreet("somewhere2");
         a2.setCityInfo(c2);
@@ -63,11 +67,29 @@ public class Populate {
         p2.setEmail("p2@dk.dk");
         p2.setAddress(a2);
         p2.addPhone(phone2);
+        
+        h2.setName("Cycling");
+        h2.setDescription("Cycling on the road");
+        //h2.addPerson(p2);
+        
 
         em.persist(p2);
         em.persist(phone2);
-
+        
+//      h2.addPerson(p2);
+        em.persist(h2);
+        
+        
+        
+        
+        
         em.getTransaction().commit();
+        
+        Person p3 = em.find(Person.class, 10L);
+        
+        System.out.println((InfoEntity) p3);
+        System.out.println(p3.getPhones());
+        
         em.close();
     }
 }

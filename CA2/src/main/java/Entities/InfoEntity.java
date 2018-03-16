@@ -1,14 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entities;
 
-import com.google.gson.annotations.Expose;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -18,33 +13,33 @@ import javax.persistence.InheritanceType;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-/**
- *
- * @author Oliver
- */
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class InfoEntity implements Serializable {
+
+    //Variables
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
-    @Expose
     private String email;
-    
-    @OneToMany(mappedBy = "infoEntity")
-    @Expose
-    private List<Phone> phones = new ArrayList();
-    @ManyToOne
-    @Expose
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Address address;
 
+
+    @OneToMany(mappedBy = "infoEntity")
+    private List<Phone> phones;
+
+    
+    //Constructors
     public InfoEntity() {
     }
 
-    public InfoEntity(Long id, String email) {
-        this.id = id;
+    public InfoEntity(String email, Address address, List<Phone> phones) {
         this.email = email;
+        this.address = address;
+        this.phones = phones;
     }
 
     public Long getId() {
@@ -59,22 +54,6 @@ public class InfoEntity implements Serializable {
         this.email = email;
     }
 
-    public List<Phone> getPhones() {
-        return phones;
-    }
-
-    public void setPhones(List<Phone> phones) {
-        this.phones = phones;
-    }
-    
-    public void addPhone(Phone phone) {
-        if(this.phones == null){
-            this.phones = new ArrayList<>();
-        }
-        phone.setInfoEntity(this);
-        this.phones.add(phone);
-    }
-
     public Address getAddress() {
         return address;
     }
@@ -83,9 +62,30 @@ public class InfoEntity implements Serializable {
         this.address = address;
     }
 
-    @Override
-    public String toString() {
-        return "InfoEntity{" + "id=" + id + ", email=" + email + ", phones=" + phones + ", address=" + address + '}';
+    public List<Phone> getPhones() {
+        return phones;
+    }
+
+    public void addPhone(Phone phone) {
+        if(this.phones == null){
+            this.phones = new ArrayList<>();
+        }
+        phone.setInfoEntity(this);
+        this.phones.add(phone);
     }
     
+    
+
+//    @Override
+//    public String toString() {
+//        return "InfoEntity id: " + id + "\n"
+//                + "Email: " + email + "\n"
+//                + "Address: " + address + "\n";
+//    }
+
+    @Override
+    public String toString() {
+        return "InfoEntity{" + "id=" + id + ", email=" + email + ", address=" + address + ", phones=" + phones + '}';
+    }
+
 }

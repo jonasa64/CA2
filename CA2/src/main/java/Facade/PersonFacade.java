@@ -21,9 +21,9 @@ public class PersonFacade implements IPersonFacade{
         
     }
     
-    public PersonFacade(EntityManagerFactory emf){
-        this.emf = emf;
-    }
+//    public PersonFacade(EntityManagerFactory emf){
+//        this.emf = emf;
+//    }
 
     @Override
     public void addEntityManagerFactory(EntityManagerFactory emf) {
@@ -104,11 +104,11 @@ public class PersonFacade implements IPersonFacade{
     }
 
     @Override
-    public Person getPerson(int id) {
+    public Person getPerson(Long id) {
         EntityManager em = emf.createEntityManager();
         try{
            em.getTransaction().begin();
-           Person person = em.find(Person.class,(long) id);
+           Person person = em.find(Person.class, id);
            em.getTransaction().commit();
            return person;
         }finally{
@@ -128,6 +128,23 @@ public class PersonFacade implements IPersonFacade{
            }finally{
            em.close();
        }
+    }
+
+    @Override
+    public List<Person> getPersonsByHobby(String hobbyName) {
+        EntityManager em = emf.createEntityManager();
+
+        List<Person> persons = null;
+        
+        try {
+            em.getTransaction().begin();
+            persons = em.createQuery("Select p from Person p where Hobby.name =" + hobbyName).getResultList();
+            em.getTransaction().commit();
+            return persons;
+        }
+        finally {
+            em.close();
+        }
     }
     
 }
