@@ -6,13 +6,14 @@
 package Facade;
 
 import Entities.Phone;
+import javax.persistence.EntityManagerFactory;
 
 /**
  *
  * @author Oliver
  */
 public interface IPhoneFacade {
-    
+    public void addEntityManagerFactory(EntityManagerFactory emf);
     public Phone getPhoneById(Long id);
     
 }
