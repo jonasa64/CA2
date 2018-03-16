@@ -50,7 +50,10 @@ public class PersonDTO implements JSONMessage<Person> {
         for(Long id : phoneIds) {
             phones.add(pf.getPhoneById(id));
         }
-        return new Person(id, firstName, lastName, phones, address, cityInfo);
+        //return new Person(id, firstName, lastName, phones, address, cityInfo);
+        Person person = null; //DETTE ER KUN SÅ METODEN KAN RETURN NOGET OG 
+        return person;        //IKKE GIVE FEJL!!
+        
     }
     
 }

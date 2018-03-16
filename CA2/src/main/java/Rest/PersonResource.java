@@ -54,28 +54,28 @@ public class PersonResource {
         personFacade.addEntityManagerFactory(Persistence.createEntityManagerFactory("PU"));
     }
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("/complete/{id}")
-    public String getPerson(@PathParam("id") Long id) {
-        Person pers = PersonFacade.getPerson(id);
-        return MessageFacade.messagetoJson(new PersonDTO(pers));
-    }
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("/complete/{id}")
+//    public String getPerson(@PathParam("id") Long id) {
+//        Person pers = PersonFacade.getPerson(id);
+//        return MessageFacade.messagetoJson(new PersonDTO(pers));
+//    }
+    
+//    @GET
+//    @Produces(MediaType.APPLICATION_JSON)
+//    @Path("/complete")
+//    public String getPersons() {
+//        ArrayList<JSONMessage> messages = new ArrayList<>();
+//        for(Person pers : PersonFacade.getPersons()) {
+//            messages.add(new PersonDTO(pers));
+//        }
+//        return gson.toJson(messages);
+//    }
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/complete")
-    public String getPersons() {
-        ArrayList<JSONMessage> messages = new ArrayList<>();
-        for(Person pers : PersonFacade.getPersons()) {
-            messages.add(new PersonDTO(pers));
-        }
-        return gson.toJson(messages);
-    }
-    
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("all")
+    @Path("complete")
     public String getPersonss() throws PersonsNotFoundException {
         List<Person> personList = personFacade.getPersons();
         if(!personList.isEmpty()){
