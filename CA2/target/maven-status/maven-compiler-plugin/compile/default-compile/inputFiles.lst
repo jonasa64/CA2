@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/IcompaniesFacade.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/IPersonFacade.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/Hobby.java
@@ -20,3 +21,18 @@
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/CityInfo.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Facade/IZipFacade.java
 /Users/Oliver/Datamatiker/3. semester/CA2Assignment/CA2/CA2/src/main/java/Entities/Phone.java
+=======
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Entities\CityInfo.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Entities\Phone.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Entities\Address.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Facade\IcompaniesFacade.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Facade\PersonFacade.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Facade\IZipFacade.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Facade\ZipFacade.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Entities\InfoEntity.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Facade\IPersonFacade.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\jpaControl\Structure.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Entities\Person.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Facade\CompaniesFacade.java
+C:\Users\Ejer\Desktop\CA2JonasOg Oliver\CA2\CA2\src\main\java\Entities\Company.java
+>>>>>>> master

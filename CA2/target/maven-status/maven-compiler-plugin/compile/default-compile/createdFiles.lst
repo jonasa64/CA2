@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 jpaControl/Populate.class
 Facade/CompaniesFacade.class
 Facade/IcompaniesFacade.class
@@ -20,3 +21,12 @@ Entities/InfoEntity.class
 Entities/Hobby.class
 Rest/ApplicationConfig.class
 Entities/CityInfo.class
+=======
+Entities\CityInfo.class
+Entities\Company.class
+Entities\Phone.class
+Entities\Person.class
+Entities\InfoEntity.class
+Entities\Address.class
+jpaControl\Structure.class
+>>>>>>> master
