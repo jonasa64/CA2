@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+jpaControl/Populate.class
+Facade/CompaniesFacade.class
+Facade/IcompaniesFacade.class
+Rest/PersonResource.class
+Rest/JsonConverter.class
+jpaControl/Structure.class
+Entities/Company.class
+Exception/ErrorMessage.class
+Rest/ZipResource.class
+Exception/PersonsNotFoundException.class
+Entities/Phone.class
+Entities/Person.class
+Facade/PersonFacade.class
+Facade/ZipFacade.class
+Facade/FacadeZip.class
+Entities/Address.class
+Facade/IPersonFacade.class
+Facade/IZipFacade.class
+Entities/InfoEntity.class
+Entities/Hobby.class
+Rest/ApplicationConfig.class
+Entities/CityInfo.class
+=======
 Entities\CityInfo.class
 Entities\Company.class
 Entities\Phone.class
@@ -5,3 +29,4 @@ Entities\Person.class
 Entities\InfoEntity.class
 Entities\Address.class
 jpaControl\Structure.class
+>>>>>>> master

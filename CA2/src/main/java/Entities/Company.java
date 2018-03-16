@@ -1,20 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entities;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
 
-/**
- *
- * @author Oliver
- */
 @Entity
 public class Company extends InfoEntity implements Serializable {
 
+    //Variables
     private static final long serialVersionUID = 1L;
     private String name;
     private String description;
@@ -22,6 +14,7 @@ public class Company extends InfoEntity implements Serializable {
     private int numEmployees;
     private double marketValue;
 
+    //Constructors
     public Company() {
     }
 
@@ -33,6 +26,7 @@ public class Company extends InfoEntity implements Serializable {
         this.marketValue = marketValue;
     }
 
+    //Getters and setters
     public String getName() {
         return name;
     }
@@ -75,7 +69,11 @@ public class Company extends InfoEntity implements Serializable {
 
     @Override
     public String toString() {
-        return "Company{" + "name=" + name + ", description=" + description + ", cvr=" + cvr + ", numEmployees=" + numEmployees + ", marketValue=" + marketValue + '}';
+        return "Company Name: " + name + "\n"
+                + "Description: " + description + "\n"
+                + "Cvr: " + cvr + "\n"
+                + "NumEmployees: " + numEmployees + "\n"
+                + "MarketValue: " + marketValue + "\n";
     }
 
 }

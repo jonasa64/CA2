@@ -20,17 +20,10 @@ public Person editePerson(Person p);
 public Person deletePerson(Person p);
 public Person getPerson(String phone);
 public List<Person> getPersons();
-//public Person getPerson(String hobby);
-public Person getPerson(int id);
+public Person getPerson(Long id);
 public List<Person> getPersons(String zipcode);
 
 
-
-
-
-
-
-
-
+public List<Person> getPersonsByHobby(String hobbyName);
 
 }

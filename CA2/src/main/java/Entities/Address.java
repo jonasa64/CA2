@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Entities;
 
 import java.io.Serializable;
@@ -14,55 +9,59 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-/**
- *
- * @author Oliver
- */
 @Entity
 public class Address implements Serializable {
 
+    //Variables
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Address;
+    private String street;
     private String additionalInfo;
+
     @OneToMany(mappedBy = "address")
-    private List<InfoEntity> InfoEntity;
+    private List<InfoEntity> InfoEntities;
+
     @ManyToOne
     private CityInfo cityInfo;
 
+    //Constructors
     public Address() {
     }
 
-    public Address(Long id, String Address, String additionalInfo) {
-        this.id = id;
-        this.Address = Address;
+    public Address(String street, String additionalInfo,CityInfo cityInfo) {
+        this.street = street;
         this.additionalInfo = additionalInfo;
+        this.cityInfo = cityInfo;
     }
 
-    public void setAddress(String Address) {
-        this.Address = Address;
+    public String getStreet() {
+        return street;
     }
 
-    public void setAdditionalInfo(String additionalInfo) {
-        this.additionalInfo = additionalInfo;
-    }
-
-    public void setInfoEntity(List<InfoEntity> InfoEntity) {
-        this.InfoEntity = InfoEntity;
-    }
-
-    public String getAddress() {
-        return Address;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public String getAdditionalInfo() {
         return additionalInfo;
     }
 
-    public List<InfoEntity> getInfoEntity() {
-        return InfoEntity;
+    public void setAdditionalInfo(String additionalInfo) {
+        this.additionalInfo = additionalInfo;
+    }
+
+    public List<InfoEntity> getInfoEntities() {
+        return InfoEntities;
+    }
+
+    public void setInfoEntities(List<InfoEntity> InfoEntities) {
+        this.InfoEntities = InfoEntities;
+    }
+
+    public void addInfoEntity(InfoEntity infoentity) {
+        this.InfoEntities.add(infoentity);
     }
 
     public CityInfo getCityInfo() {
@@ -73,33 +72,11 @@ public class Address implements Serializable {
         this.cityInfo = cityInfo;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Address)) {
-            return false;
-        }
-        Address other = (Address) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
     @Override
     public String toString() {
-        return "Address{" + "id=" + id + ", Address=" + Address + ", additionalInfo=" + additionalInfo + '}';
+        return "Street: " + street + "\n"
+                + "AdditionalInfo: " + additionalInfo + "\n"
+                + "InfoEntities: " + InfoEntities + "\n"
+                + "Cityinfo=" + cityInfo + "\n";
     }
-
 }
