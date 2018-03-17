@@ -158,7 +158,6 @@ public class PersonResource {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/add")
     public String addPerson(String content) {
         Person personToAdd = jsonConverter.getPersonFromJson(content);//convert Person object from JSON to Java
         Person personAdded = personFacade.addPerson(personToAdd);
