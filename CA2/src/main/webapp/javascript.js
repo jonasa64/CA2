@@ -54,7 +54,7 @@ function deletePerson(id) {
 
 // get all persons 
 document.getElementById("btn0").addEventListener("click", function () {
-    getComplete();
+    getAllPerson();
 });
 
 function getAllPerson() {
@@ -82,6 +82,7 @@ function getAllPerson() {
     })
 }
 
+    //Olle function, getAllPersons
     function getComplete() {
         var finaleUrl = "http://localhost:8084/CA2/api/person/complete";
         console.log(finaleUrl);
