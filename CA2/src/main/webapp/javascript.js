@@ -20,11 +20,42 @@ document.getElementById("btn2").addEventListener("click", function () {
 
 
 function GetAllZipCodes() {
-    fetch("api/zip/all", {method: get}).then(function (response) {
-        return  response.json();
-    }).then(function (data) {
-        document.getElementById("display2").innerHTML = data.lastName;
-    });
+//    fetch("http://localhost:8084/CA2/api/zip/all", {method: "get"}).then(function (response) {
+//        return  response.text();
+//    }).then(function (text) {
+//        obj = JSON.parse(text);
+//        document.getElementById("display2").innerHTML = obj.zipCode;
+//    });
+
+
+var url = "http://localhost:8084/CA2/api/zip/all";
+var conf = {method: "get", headers: new Headers({'content-type': "application/json"})};
+var promise = fetch(url, conf);
+var error = false;
+promise.then(function (response) {
+    if (response.status >= 400) {
+        error = true;
+    }
+    return response.json();
+ 
+}).then(function (json) {
+    if (error) {
+        alert("startUp"+json.message);
+    }
+    originalJson = json;
+
+    var html = "<table><tr><th>zipCode</th></tr>";
+    for (var i = 0; i < json.length; i++) {
+      
+        html += "<tr><td>" + json[i].zips + "</td></tr>";
+    }
+    html += "</table>";
+  
+    document.getElementById("display2").innerHTML = html;
+});
+
+
+
 }
 
 
@@ -58,28 +89,32 @@ document.getElementById("btn0").addEventListener("click", function () {
 });
 
 function getAllPerson() {
-    fetch("http://localhost:8084/CA2/api/person/complete", {method: "get"}).then(function (json) {
-        document.getElementById("show").innerHTML = "";
-
-        var rows = "";
 
 
-        for (var i = 0; i < json.persons; i++) {
-            rows += '<tr>';
+var url = "http://localhost:8084/CA2/api/person/complete";
+var conf = {method: "get", headers: new Headers({'content-type': "application/json"})};
+var promise = fetch(url, conf);
+var error = false;
+promise.then(function (response) {
+    if (response.status >= 400) {
+        error = true;
+    }
+    return response.json();
+}).then(function (json) {
+    if (error) {
+        alert("startUp"+json.message);
+    }
+    originalJson = json;
 
-            rows += '<td>' + persons[i].firstName + '</td>';
-            rows += '<td>' + persons[i].lastName + '</td>';
-            rows += '<td>' + persons[i].Email + '</td>';
-            rows += '<td>' + persons[i].Address + '</td>';
-            rows += '<td>' + persons[i].phone + '</td>';
+    var html = "<table><tr><th>Firstname</th><th>Lastname</th><th>Address</th><th>Email</th><th>Phone</th></tr>";
+    for (var i = 0; i < json.length; i++) {
+        html += "<tr><td>" + json[i].firstName + "</td><td>" + json[i].lastName  + "</td><td>" + json[i].Address + "</td><td>" + json[i].Email  + "</td><td>" + json[i].Phones + "</td></tr>";
+    }
+    html += "</table>";
+    document.getElementById("show").innerHTML = html;
+});
 
 
-            '</tr>';
-        }
-
-        document.getElementById("show").innerHTML = rows;
-
-    })
 }
 
     //Olle function, getAllPersons
@@ -119,19 +154,40 @@ function getAllPerson() {
 
 
 
+var userAdd = document.getElementById("userAdd");
+userAdd.onclick = function () {
+    var user = {
+        firstName: document.getElementById("fName").value,
+        lastName: document.getElementById("lName").value,
+        Address: document.getElementById("Address"),
+        Email: document.getElementById("Email"),
+        phones: document.getElementById("phone").value
+    };
+    var error = false;
+    var data = (JSON.stringify(user));
+
+    var url = "http://localhost:8084/CA2/api/person/complete";
+    var conf = {method: "post",
+        body: data,
+        headers: new Headers({'content-type': 'application/json'})
+    };
+    var promise = fetch(url, conf);
+    promise.then(function (response) {
+        if (response.status >= 400) {
+            error = true;
+        }
+        return response.json();
+    }).then(function (json) {
+        if (error) {
+            alert(json.message);
+        }
+    });
+};
 
 
 
 
 
-function showFrom() {
-    document.getElementById("form").innerHTML =
-            "<form>" +
-            "First Name: " + "<input type='input'>" + "<br>" +
-            "Last Name: " + "<input type='input>'" + "<br>" +
-            "<button> Submit</button>" +
-            "</form>";
-}
 
 
 

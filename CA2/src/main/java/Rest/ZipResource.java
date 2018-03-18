@@ -31,7 +31,7 @@ public class ZipResource {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("/all")
+    @Path("all")
     public String getAllZip() {
         //First we call the getAllZips-method from the facade and store it in a List-variable
         List<CityInfo> zips = zipFacade.getAllZips();

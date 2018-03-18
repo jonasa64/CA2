@@ -6,7 +6,7 @@ document.getElementById("btn").addEventListener("click",function(){
 
 
 function showContactInfo(){
-    fetch("api/emp/all",{method:get}).then(function(json){
+    fetch("api/emp/all",{method:"get"}).then(function(json){
         document.getElementById("display").innerHTML = "";
         
         var rows = "";
