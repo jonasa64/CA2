@@ -13,18 +13,18 @@ import com.google.gson.Gson;
  */
 public class MessageFacade {
 
-    private static Gson gson = new Gson();
+    private  Gson gson = new Gson();
 
     //This seemingly silly wrapper ensures that the object is a JSONMessage, proving that we intend to serialize it
-    public static String messagetoJson(JSONMessage jm) {
+    public  String messagetoJson(JSONMessage jm) {
         return gson.toJson(jm);
     }
 
-    public static <T extends JSONMessage> T jsonToMessage(String json, Class<T> c) {
+    public <T extends JSONMessage> T jsonToMessage(String json, Class<T> c) {
         return gson.fromJson(json, c);
     }
 
-    public static <T2, T extends JSONMessage<T2>> T2 fromJson(String json, Class<T> DTOClass) {
+    public  <T2, T extends JSONMessage<T2>> T2 fromJson(String json, Class<T> DTOClass) {
         return jsonToMessage(json, DTOClass).toInternal();
 
     }

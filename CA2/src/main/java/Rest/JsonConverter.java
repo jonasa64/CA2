@@ -16,7 +16,7 @@ import java.util.List;
  * @author Oliver
  */
 public class JsonConverter {
-    private static final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
+    private  final Gson GSON = new GsonBuilder().setPrettyPrinting().create();
                                     
             //new GsonBuilder().excludeFieldsWithoutExposeAnnotation().create();
 

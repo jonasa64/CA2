@@ -20,7 +20,7 @@ document.getElementById("btn2").addEventListener("click", function () {
 
 
 function GetAllZipCodes() {
-//    fetch("http://localhost:8084/CA2/api/zip/all", {method: "get"}).then(function (response) {
+//    fetch("http://localhost:8084/CA2/api/zip/all", {method: "get",headers: new Headers({'content-type': "application/json"})}).then(function (response) {
 //        return  response.text();
 //    }).then(function (text) {
 //        obj = JSON.parse(text);
@@ -29,28 +29,39 @@ function GetAllZipCodes() {
 
 
 var url = "http://localhost:8084/CA2/api/zip/all";
-var conf = {method: "get", headers: new Headers({'content-type': "application/json"})};
+var conf = {method: "get", headers: new Headers({ 'Content-Type': "application/json",'Accept': "application/json"})};
 var promise = fetch(url, conf);
 var error = false;
+
 promise.then(function (response) {
+    
+
     if (response.status >= 400) {
         error = true;
     }
-    return response.json();
+        return  response.json();
  
 }).then(function (json) {
     if (error) {
         alert("startUp"+json.message);
     }
+    
     originalJson = json;
 
     var html = "<table><tr><th>zipCode</th></tr>";
+   
     for (var i = 0; i < json.length; i++) {
-      
+
+  
         html += "<tr><td>" + json[i].zips + "</td></tr>";
     }
+
+    
+    
+    
+    
     html += "</table>";
-  
+    
     document.getElementById("display2").innerHTML = html;
 });
 
@@ -91,7 +102,7 @@ document.getElementById("btn0").addEventListener("click", function () {
 function getAllPerson() {
 
 
-var url = "http://localhost:8084/CA2/api/person/complete";
+var url = "http://localhost:8084/CA2/api/person";
 var conf = {method: "get", headers: new Headers({'content-type': "application/json"})};
 var promise = fetch(url, conf);
 var error = false;
@@ -159,17 +170,17 @@ userAdd.onclick = function () {
     var user = {
         firstName: document.getElementById("fName").value,
         lastName: document.getElementById("lName").value,
-        Address: document.getElementById("Address"),
-        Email: document.getElementById("Email"),
+        Address: document.getElementById("Address").value,
+        Email: document.getElementById("Email").value,
         phones: document.getElementById("phone").value
     };
     var error = false;
     var data = (JSON.stringify(user));
 
-    var url = "http://localhost:8084/CA2/api/person/complete";
-    var conf = {method: "post",
+    var url = "http://localhost:8084/CA2/api/person";
+    var conf = {method: "POST",
         body: data,
-        headers: new Headers({'content-type': 'application/json'})
+        headers: new Headers({'content-type': 'application/json','Accept': 'application/json'})
     };
     var promise = fetch(url, conf);
     promise.then(function (response) {

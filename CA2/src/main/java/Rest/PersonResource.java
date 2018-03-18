@@ -56,10 +56,9 @@ public class PersonResource {
 
 //    @GET
 //    @Produces(MediaType.APPLICATION_JSON)
-//    @Path("/complete/{id}")
-//    public String getPerson(@PathParam("id") Long id) {
-//        Person pers = PersonFacade.getPerson(id);
-//        return MessageFacade.messagetoJson(new PersonDTO(pers));
+//        public String getPerson() {
+//       List<Person> pers = PersonFacade.getPersons();
+//        return MessageFacade.messagetoJson(new PersonDTO((Person) pers));
 //    }
     
 //    @GET
@@ -75,7 +74,7 @@ public class PersonResource {
     
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    @Path("complete")
+   // @Path("complete")
     public String getPersonss() throws PersonsNotFoundException {
         List<Person> personList = personFacade.getPersons();
         if(!personList.isEmpty()){
@@ -157,11 +156,11 @@ public class PersonResource {
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
+
     public String addPerson(String content) {
         Person personToAdd = jsonConverter.getPersonFromJson(content);//convert Person object from JSON to Java
-        Person personAdded = personFacade.addPerson(personToAdd);
-        return jsonConverter.getJSONFromPerson(personAdded);
+    personFacade.addPerson(personToAdd);
+    return "{}";
     }
 
     @PUT
